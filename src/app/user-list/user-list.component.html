@@ -1,0 +1,36 @@
+<div class="user-list-container mt-5">
+    <div class="mb-3">
+        <button class="btn btn-primary" (click)="addUser()">Add User</button>
+    </div>
+    <div *ngIf="userList$ | async; else elseBlock">
+        <table>
+            <tbody>
+                <th>First Name</th>
+                <th class="px-5">Email</th>
+                <th>Actions</th>
+            </tbody>
+            <tbody>
+                <tr *ngFor="let user of userList$ | async">
+                    <td>{{ user.firstName }}</td>
+                    <td class="px-5">{{ user.email }}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="viewUser(user)">
+                            View
+                        </button>
+                        <button class="btn btn-info ml-1" (click)="editUser(user)">
+                            Edit
+                        </button>
+                        <button class="btn btn-danger ml-1" (click)="deleteUser(user)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #elseBlock>
+        <div>
+            Loading...
+        </div>
+    </ng-template>
+</div>

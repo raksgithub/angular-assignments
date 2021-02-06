@@ -1,0 +1,8 @@
+<div *ngIf="userError" class="d-flex flex-column p-3">
+    <div>Field: {{ userError.errorField }}</div>
+    <div>Error: {{ userError.errorMessage }}</div>
+    <div *ngIf="userError.hint">Hint: {{ userError.hint }}</div>
+    <button class="btn btn-primary" (click)="close()">
+        Close
+    </button>
+</div>

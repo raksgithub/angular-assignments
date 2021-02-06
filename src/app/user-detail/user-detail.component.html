@@ -1,0 +1,14 @@
+<div *ngIf="user$ | async as user; else elseBlock" class="mt-5">
+    <div class="user-detail">
+        <p>First Name: {{ user.firstName }}</p>
+        <p>Last Name: {{ user.lastName }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Active Status: {{ user.isActive ? 'Active' : 'Not Active' }}</p>
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    <div class="d-flex justify-content-start align-items-center mt-5">
+        Loading...
+    </div>
+</ng-template>
